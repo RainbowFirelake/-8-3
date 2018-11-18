@@ -10,26 +10,12 @@
 Monster MonsterGenerator::generateMonster() // случайная генерация параметров монстра
 {
 	int hp   = getRandomNumber(1, 100);
-	int int_rand_type = getRandomNumber(0, static_cast<int>(Monster::MAX_MONSTER_TYPES) - 1); // Перевод 
-	Monster::MonsterType type;
-	switch (int_rand_type)
-	{
-	case 0:  type = Monster::DRAGON;             break;
-	case 1:  type = Monster::GOBLIN;             break;
-	case 2:  type = Monster::OGRE;               break;
-	case 3:  type = Monster::ORC;                break;
-	case 4:  type = Monster::SKELETON;           break;
-	case 5:  type = Monster::TROLL;              break;
-	case 6:  type = Monster::VAMPIRE;            break;
-	case 7:  type = Monster::ZOMBIE;             break;
-	default: type = Monster::MAX_MONSTER_TYPES;  break;
-	}
-
+	Monster::MonsterType type = static_cast<Monster::MonsterType>
+		(getRandomNumber(0, static_cast<int>(Monster::MAX_MONSTER_TYPES) - 1)); // Перевод 
+	
 	static std::array<std::string, 6> names{"Ruslan", "Evgeniy", "Yura", "Danila", "Tvoya Mamka", "Pidoras"};
-	int i = getRandomNumber(0, 5);
-	std::string monsterName = names[i];
 
-	return Monster(type, monsterName, hp);
+	return Monster(type, names[getRandomNumber(0, 5)], hp);
 }
 
 int MonsterGenerator::getRandomNumber(int min, int max) // функция рандомизации значений
