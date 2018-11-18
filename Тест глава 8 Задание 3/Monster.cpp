@@ -1,7 +1,7 @@
 #include "Monster.h"
 #include <iostream>
 
-std::string Monster::getTypeString() const
+std::string Monster::getTypeString() const // Вывод типа монстра
 {
 	switch (m_type)
 	{

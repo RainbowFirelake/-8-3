@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-class Monster
+class Monster 
 {
 public:
 	enum MonsterType
@@ -20,10 +20,10 @@ private:
 	std::string m_name;
 	int         m_hp;
 public:
-	Monster(MonsterType type, std::string name = "unknown", int hp = 100) 
+	Monster(MonsterType type, std::string name = "unknown", int hp = 100) // инициализатор
 		: m_type{ type }, m_name{ name }, m_hp{ hp } {};
 
-	std::string getTypeString() const;
+	std::string getTypeString() const; // Вывод типа монстра
 
 	void print() const;
 };
